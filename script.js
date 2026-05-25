@@ -282,6 +282,13 @@ document.getElementById('goalWeight').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') setGoal();
 });
 
+// Register service worker for offline support
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(err => {
+        console.log('Service Worker registration failed:', err);
+    });
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     setTodayDate();
