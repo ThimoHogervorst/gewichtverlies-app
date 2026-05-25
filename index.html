@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gewicht Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚖️ Gewicht Tracker</h1>
+        </header>
+
+        <main>
+            <!-- Input Section -->
+            <section class="input-section">
+                <h2>Gewicht invoeren</h2>
+                <div class="input-group">
+                    <div class="form-field">
+                        <label for="date">Datum:</label>
+                        <input type="date" id="date" />
+                    </div>
+                    <div class="form-field">
+                        <label for="weight">Gewicht (kg):</label>
+                        <input type="number" id="weight" placeholder="bijv. 85.5" step="0.1" />
+                    </div>
+                    <button id="addBtn" class="btn-primary">Opslaan</button>
+                </div>
+            </section>
+
+            <!-- Goal Section -->
+            <section class="goal-section">
+                <h2>Doelgewicht</h2>
+                <div class="input-group">
+                    <div class="form-field">
+                        <label for="goalWeight">Doelgewicht (kg):</label>
+                        <input type="number" id="goalWeight" placeholder="bijv. 75" step="0.1" />
+                    </div>
+                    <button id="setGoalBtn" class="btn-secondary">Instellen</button>
+                </div>
+                <p id="goalDisplay" class="goal-display"></p>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <h2>Statistieken</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Huiedig gewicht</div>
+                        <div class="stat-value" id="currentWeight">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Totaal afgevallen</div>
+                        <div class="stat-value" id="totalLoss">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Nog af te vallen</div>
+                        <div class="stat-value" id="remaining">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Afname per week</div>
+                        <div class="stat-value" id="weeklyAverage">-</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chart Section -->
+            <section class="chart-section">
+                <h2>Voortgang grafiek</h2>
+                <div class="chart-container">
+                    <canvas id="weightChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Data List Section -->
+            <section class="data-section">
+                <h2>Alle metingen</h2>
+                <div id="dataList" class="data-list"></div>
+                <button id="clearBtn" class="btn-danger">Alles verwijderen</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>💪 Jij redt dit!</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
